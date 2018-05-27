@@ -1,0 +1,21 @@
+{% include "base.html" %}
+
+<style type="text/css">
+    .container{
+        width:500px;
+    }
+</style>
+
+<div class="container">
+    <div class="jumbotron">
+        {% if error %}
+            <div class="alert alert-danger">
+                <strong>{{ error }}</strong>
+            </div>
+        {% endif %}
+        <form action="/app/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <input type="file" name="files" multiple>
+            <button type="submit" class="btn btn-success">Upload</button>
+        </form>
+    </div>
+</div>
